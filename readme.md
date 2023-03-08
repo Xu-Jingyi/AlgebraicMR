@@ -11,47 +11,83 @@ Our algebraic machine reasoning framework is not only able to select the correct
 
 ## 0. Illustration
 
-![](flowchart3.png)
+![](figure/flowchart3.png)
 
 ## 1. Requirements
 
 - Python 3.8
 - PyTorch=1.9.1
-- tqdm
 - mmcv
 - mmdet
+- Macaulay2
+
+Macaulay2 is a software system designed for research in algebraic geometry and commutative algebra. In this paper, all the computations in the algebraic machine reasoning stage of our reasoning framework is done using Macaulay2. To install Macaulay2 1.17.1 on Ubuntu from official repositories:
+
+```bash
+sudo apt install macaulay2
+```
+
+Alternatively, the latest version of Macaulay2 can be installed in Ubuntu using PPA (Personal Package Archive).
+
+```bash
+sudo add-apt-repository ppa:macaulay2/macaulay2 
+sudo apt install macaulay2
+```
+
+
 
 
 ## 2. Datasets 
 
-To demonstrate the effectiveness of our algebraic machine reasoning framework, we conduct experiments on RAVEN/IRAVEN datasets. These two datasets use the same generation process of the question matrix. While I-RAVEN provides a better way to generate the answer set, which overcomes the flaw of RAVEN that the correct answer could be directly inferred via majority voting, even without the question matrix.
+To demonstrate the effectiveness of our algebraic machine reasoning framework, we conduct experiments on the RAVEN/IRAVEN datasets. These two datasets use the same generation process for the question matrices of RPM instances. I-RAVEN provides a modified answer generation process that overcomes a flaw in RAVEN's answer generation process: In RAVEN, the correct answer for an RPM instance could potentially be directly inferred via majority voting, even without the question matrix. 
 
-<img src="iraven_example.png" width="400">
+The RAVEN dataset can be downloaded from the official GitHub repository, and the I-RAVEN dataset is generated using the official code, with the same dataset size as RAVEN.
+
+<img src="figure/iraven_example.png" style="zoom:60%;" />
+
+
 
 
 ## 3. Object Detection Models
 
-In order to represent the RPM instances algebraically, we first need to train object detection models to extract the attribute values from the raw RPM images. We use the MMDetection package for standard training of a RetinaNet with ResNet-50 for attributes "type", "color", "position" and "size". 
+In order to represent the RPM instances algebraically, we first need to train object detection models to extract the attribute values from the raw RPM images. We use the MMDetection package for the standard training of 4 RetinaNets with ResNet-50 backbones, for the 4 attributes "type", "color", "position" and "size", respectively.
 
 ### 3.1 Data processing
-The RAVEN/I-RAVEN dataset needs to be processed to a particular format called the middle format specified for MMDetection. For example, to process data to MMDetection middle format for attributes "type", "color", "size", and "position" using .npz files with 60-20-20 split for training, validating and testing:
-```
-python process-data.py --data-dir *directory containing the configuration files*  
-                       --label-attrib types colors abssizes abspositions 
-                       --save-dir *directory to save generated jpeg images* 
+The RAVEN/I-RAVEN dataset needs to be processed to a particular format called the middle format specified for MMDetection. For example, to process data to MMDetection middle format for attributes "type", "color", "size", and "position" using .npz files with 60-20-20 split for training, validating and testing, we can use the following command:
+```python
+python process-data.py --label_attrib types colors abssizes abspositions 
                        --train 60 --val 20 --test 20
 ```
 
 ### 3.2 Training
 
-The configuration files are stored in "./perception/configs/". To train the object detection model on attribute "type":
+The configuration files are stored in "./perception/configs/". To train the object detection model on attribute "type", use the following command:
 
-```
+```python
 python train-det.py ./configs/perception-types.py
 ```
 
-For other attributes, just change to the corresponding configuration file.
+For other attributes, change the filename accordingly, to the corresponding configuration file.
 
 
 
 ## 4. Algebraic Machine Reasoning
+
+To use our algebraic reasoning framework:
+
+```python
+python solver.py 
+```
+
+The directory structure should be:
+
+```
+RPMSolver/
+        ├── data
+        │   └── prediction_data.txt 
+        ├── codes
+            ├── solver.py
+            ├── m2interface.py
+            └── modules.m2
+```
+
