@@ -19,8 +19,8 @@ Our algebraic machine reasoning framework is not only able to select the correct
 - Python 3.8
 - PyTorch=1.9.1
 - [MMCV](https://github.com/open-mmlab/mmcv)
-- MMDetection 
-- Macaulay2
+- [MMDetection](https://github.com/open-mmlab/mmdetection)
+- [Macaulay2](http://www2.macaulay2.com/Macaulay2/)
 
 Macaulay2 is a software system designed for research in algebraic geometry and commutative algebra. In this paper, all the computations in the algebraic machine reasoning stage of our reasoning framework is done using Macaulay2. To install Macaulay2 on Ubuntu from official repositories:
 
