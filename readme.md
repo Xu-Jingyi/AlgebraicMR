@@ -8,6 +8,7 @@ This is the official PyTorch code for the following CVPR 2023 paper:
 
 Our algebraic machine reasoning framework is not only able to select the correct answer from a given answer set, but also able to generate the correct answer with only the question matrix given. Experiments on the I-RAVEN dataset yield an overall 93.2% accuracy, which significantly outperforms the current state-of-the-art accuracy of 77.0% and exceeds human performance at 84.4% accuracy.
 
+(This code is jointly contributed, in alphabetical order, by Saket Chandra, Zhangsheng Lai, Yufei Wu, and Jingyi Xu. For queries on technical aspects of algebraic machine reasoning, please contact the corresponding author, Kai Fong Ernest Chong.)
 
 ## 0. Illustration
 
