@@ -18,8 +18,8 @@ Our algebraic machine reasoning framework is not only able to select the correct
 
 - Python 3.8
 - PyTorch=1.9.1
-- mmcv
-- mmdet
+- [MMCV](https://github.com/open-mmlab/mmcv)
+- MMDetection 
 - Macaulay2
 
 Macaulay2 is a software system designed for research in algebraic geometry and commutative algebra. In this paper, all the computations in the algebraic machine reasoning stage of our reasoning framework is done using Macaulay2. To install Macaulay2 on Ubuntu from official repositories:
@@ -49,7 +49,7 @@ The RAVEN dataset can be downloaded from the official GitHub repository, and the
 
 
 
-## 3. Object Detection Models
+## 3. Perception via Object Detection Models
 
 In order to represent the RPM instances algebraically, we first need to train object detection models to extract the attribute values from the raw RPM images. We use the MMDetection package for the standard training of 4 RetinaNets with ResNet-50 backbones, for the 4 attributes "type", "color", "position" and "size", respectively.
 
@@ -86,7 +86,7 @@ The directory structure should be:
 RPMSolver/
         ├── data
         │   └── prediction_data.txt 
-        ├── codes
+        └── codes
             ├── solver.py
             ├── m2interface.py
             └── modules.m2
