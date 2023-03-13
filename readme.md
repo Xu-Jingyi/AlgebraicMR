@@ -22,7 +22,7 @@ Our algebraic machine reasoning framework is not only able to select the correct
 - mmdet
 - Macaulay2
 
-Macaulay2 is a software system designed for research in algebraic geometry and commutative algebra. In this paper, all the computations in the algebraic machine reasoning stage of our reasoning framework is done using Macaulay2. To install Macaulay2 1.17.1 on Ubuntu from official repositories:
+Macaulay2 is a software system designed for research in algebraic geometry and commutative algebra. In this paper, all the computations in the algebraic machine reasoning stage of our reasoning framework is done using Macaulay2. To install Macaulay2 on Ubuntu from official repositories:
 
 ```bash
 sudo apt install macaulay2
