@@ -42,7 +42,7 @@ sudo apt install macaulay2
 
 To demonstrate the effectiveness of our algebraic machine reasoning framework, we conduct experiments on the [RAVEN](https://github.com/WellyZhang/RAVEN)/[I-RAVEN](https://github.com/husheng12345/SRAN) datasets. These two datasets use the same generation process for the question matrices of RPM instances. I-RAVEN provides a modified answer generation process that overcomes a flaw in RAVEN's answer generation process: In RAVEN, the correct answer for an RPM instance could potentially be directly inferred via majority voting, even without the question matrix. 
 
-The RAVEN dataset can be downloaded from the official GitHub repository, and the I-RAVEN dataset is generated using the official code, with the same dataset size as RAVEN.
+The RAVEN dataset can be downloaded from [the official GitHub repository](https://github.com/WellyZhang/RAVEN), and the I-RAVEN dataset is generated using [the official code](https://github.com/husheng12345/SRAN), with the same dataset size as RAVEN.
 
 <img src="figure/iraven_example.png" style="zoom:60%;" />
 
