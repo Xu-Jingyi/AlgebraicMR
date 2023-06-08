@@ -2,13 +2,15 @@
 
 This is the official PyTorch code for the following CVPR 2023 paper:
 
-**Title**: Abstract Visual Reasoning: An Algebraic Approach for Solving Raven’s Progressive Matrices.
+**Title**: [Abstract Visual Reasoning: An Algebraic Approach for Solving Raven’s Progressive Matrices.](https://arxiv.org/abs/2303.11730)
 
 **Abstract**: We introduce algebraic machine reasoning, a new reasoning framework that is well-suited for abstract reasoning. Effectively, algebraic machine reasoning reduces the difficult process of novel problem-solving to routine algebraic computation. The fundamental algebraic objects of interest are the ideals of some suitably initialized polynomial ring. We shall explain how solving Raven's Progressive Matrices (RPMs) can be realized as computational problems in algebra, which combine various well-known algebraic subroutines that include: Computing the Gröbner basis of an ideal, checking for ideal containment, etc. Crucially, the additional algebraic structure satisfied by ideals allows for more operations on ideals beyond set-theoretic operations.
 
 Our algebraic machine reasoning framework is not only able to select the correct answer from a given answer set, but also able to generate the correct answer with only the question matrix given. Experiments on the I-RAVEN dataset yield an overall 93.2% accuracy, which significantly outperforms the current state-of-the-art accuracy of 77.0% and exceeds human performance at 84.4% accuracy.
 
 (This code is jointly contributed, in alphabetical order, by Saket Chandra, Zhangsheng Lai, Yufei Wu, and Jingyi Xu. For queries on technical aspects of algebraic machine reasoning, please contact the corresponding author, Kai Fong Ernest Chong.)
+
+
 
 ## 0. Illustration
 
